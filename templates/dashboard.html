@@ -28,34 +28,46 @@
       </span>
     </aside>
     <main class="dash-main">
-      <h1 class="title">Hola</h1>
+      <h1 class="title">Tabla de usuarios</h1>
       <section>
         <div id="example-table"></div>
       </section>
       <script type="text/javascript">
         //define some sample data
         var tabledata = [
-          { id: 1, name: "Oli Bob", age: "12", col: "red", dob: "" },
-          { id: 2, name: "Mary May", age: "1", col: "blue", dob: "14/05/1982" },
+          {
+            id: 1,
+            Name: "Oli Bob",
+            Age: "12",
+            col: "+513197388231",
+            dob: "24/03/1984",
+          },
+          {
+            id: 2,
+            Name: "Mary May",
+            Age: "1",
+            col: "+573206424532",
+            dob: "14/05/1982",
+          },
           {
             id: 3,
-            name: "Christine Lobowski",
-            age: "42",
-            col: "green",
+            Name: "Christine Lobowski",
+            Age: "42",
+            col: "+573008183319",
             dob: "22/05/1982",
           },
           {
             id: 4,
-            name: "Brendon Philips",
-            age: "125",
-            col: "orange",
+            Name: "Brendon Philips",
+            Age: "125",
+            col: "+573185827348",
             dob: "01/08/1980",
           },
           {
             id: 5,
-            name: "Margret Marmajuke",
-            age: "16",
-            col: "yellow",
+            Name: "Margret Marmajuke",
+            Age: "16",
+            col: "+573178532348",
             dob: "31/01/1999",
           },
         ];
@@ -66,14 +78,14 @@
           layout: "fitColumns", //fit columns to width of table (optional)
           columns: [
             //Define Table Columns
-            { title: "Name", field: "name", width: 150 },
+            { title: "Name", field: "Name", width: 150 },
             {
               title: "Age",
-              field: "age",
+              field: "Age",
               hozAlign: "left",
               formatter: "progress",
             },
-            { title: "Favourite Color", field: "col" },
+            { title: "Phone", field: "col" },
             {
               title: "Date Of Birth",
               field: "dob",
@@ -82,12 +94,8 @@
             },
           ],
         });
-
-        //trigger an alert message when the row is clicked
-        table.on("rowClick", function (e, row) {
-          alert("Row " + row.getData().id + " Clicked!!!!");
-        });
       </script>
+      <h5 class="title_2">Graficas</h5>
 
       <canvas id="myChart"> </canvas>
       <script>
@@ -110,8 +118,8 @@
           data: {
             datasets: [
               {
-                pointRadius: 4,
-                pointBackgroundColor: "rgb(116,155,255)",
+                pointRadius: 5,
+                pointBackgroundColor: "rgb(0,0,0)",
                 data: xyValues,
               },
             ],
@@ -124,6 +132,45 @@
             },
           },
         });
+
+        var chartOptions = {
+          legend: {
+            display: true,
+            position: "top",
+            labels: {
+              boxWidth: 80,
+              fontColor: "black",
+            },
+          },
+          scales: {
+            xAxes: [
+              {
+                gridLines: {
+                  display: false,
+                  color: "black",
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: "Time in Seconds",
+                  fontColor: "red",
+                },
+              },
+            ],
+            yAxes: [
+              {
+                gridLines: {
+                  color: "black",
+                  borderDash: [2, 5],
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: "Speed in Miles per Hour",
+                  fontColor: "green",
+                },
+              },
+            ],
+          },
+        };
       </script>
     </main>
   </body>
